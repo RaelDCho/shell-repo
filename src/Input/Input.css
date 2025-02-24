@@ -1,0 +1,11 @@
+input {
+    border: none;
+    outline: none;
+    margin: 0;
+    background-color: transparent;
+    position: relative;
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(20, 20, 20);
+}
