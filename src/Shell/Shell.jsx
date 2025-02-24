@@ -11,8 +11,6 @@ function Shell() {
     */
     const [userOutput, setUserOutput] = useState([]);
     const [userInput, setUserInput] = useState('');
-    const [commands, setCommands] = useState([]);
-    const [commandResult, setCommandResult] = useState([]);
     const inputRef = useRef();
 
     /*
@@ -62,56 +60,45 @@ function Shell() {
       "+                                        @                     "
     ]
 
-    // const help = [
-    //   '\n',
-    //   '---------------------------------------------------------------',
-    //   'whois          Raphael D. Cho',
-    //   'repo           :)',
-    //   'clear          Clear terminal',
-    //   '---------------------------------------------------------------',
-    //   '\n'
-    // ]
+    const help = [
+      '\n\n',
+      '---------------------------------------------------------------\n\n',
+      'help           Show list of commands\n\n',
+      'whois          Raphael D. Cho\n\n',
+      'repo           :)\n\n',
+      'clear          Clear terminal\n\n',
+      '---------------------------------------------------------------\n\n',
+      '\n'
+    ]
 
     // const COMMANDS = {
-    //   help: "hi :)",
-    //   quit: "quitting"
+
     // }
 
     /*
       Functions
     */
-    const addString = (commandToAdd, commandIndex) => {
-      userOutput.map((item, index) => {
-        // console.log('Index is: ' + index);
-        // console.log('CommandIndex is: ' + commandIndex);
-        if (userOutput.index === commandIndex) {
-          // console.log(index + ': ' + commandIndex);
-        }
-      })
-    }
-
     const execute = (input) => {
+      let returnString = "";
       switch (input.toString().toLowerCase()) {
         case 'help':
-          return 'help';
           console.log('help');
-          break;
+          help.map(item => {
+            returnString += item;
+          })
+          return returnString;
         case 'whois':
-          return 'ur mother';
-          console.log('whois');
-          break;
+          console.log('whois');  
+          return 'smirk emoji';
         case 'repo':
-          return 'repo';
           console.log('repo');
-          break;
+          return 'repo';
         case 'clear':
+          console.log('clear');  
           return 'stop';
-          console.log('clear');
-          break;
         default:
-          return 'Invalid command';
           console.log('invalid command');
-          break;
+          return 'Invalid command';
       }
     }
 
@@ -120,8 +107,6 @@ function Shell() {
       if (event.key == 'Enter') {
         const newString = userInput + '\n' + execute(userInput);
         setUserOutput(userOutput => userOutput.concat(newString));
-        console.log('userOutput.length: ' + userOutput.length);
-        
         setUserInput('');
       }
     }
@@ -136,7 +121,7 @@ function Shell() {
           ))}
           <p>Type `help` to see the list of available commands.</p>
         </div>
-        <Output output={userOutput} commands={commands}/>
+        <Output output={userOutput}/>
         <Input output={changeOutput} change={event => setUserInput(event.target.value)} input={userInput} inputRef={inputRef}/>
     </div>  
     )

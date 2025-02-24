@@ -4,7 +4,7 @@ import Prompt from '../Prompt/Prompt'
 
 import './Output.css'
 
-function Output({output, commands, result}) {
+function Output({output}) {
 
     const scrollRef = useRef();
 
