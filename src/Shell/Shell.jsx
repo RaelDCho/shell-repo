@@ -62,13 +62,34 @@ function Shell() {
 
     const help = [
       '\n\n',
-      '---------------------------------------------------------------\n\n',
-      'help           Show list of commands\n\n',
-      'whois          Raphael D. Cho\n\n',
-      'repo           :)\n\n',
-      'clear          Clear terminal\n\n',
-      '---------------------------------------------------------------\n\n',
-      '\n'
+      '---------------------------------------------------------------',
+      '\n\nhelp           Show list of commands',
+      '\n\ndate           Shows current date and time',
+      '\n\nwhois          Raphael D. Cho',
+      '\n\nrepo           :)',
+      '\n\nclear          Clear terminal',
+      '\n\n---------------------------------------------------------------\n',
+      '\n\n'
+    ]
+
+    const whois = [
+      '\nHi there, my name is Raphael D(avid). Cho.',
+      '\nI\'m currently working as a cyber security consultant.',
+      '\n\nWork Experience:',
+      '\nRetail Assistant at Kmart Australia (2017-2019)',
+      '\nCyber Security Consultant at RSM Australia (March 2022 - Present)',
+      '\nADD LINK TO RESUME',
+      '\n\n'
+    ]
+
+    const repo = [
+      '\nMy GitHub repositories: <a href="https://github.com/RaelDCho?tab=repositories">repo</a>',
+      '\n\n'
+    ]
+
+    const invalidCommand = [
+      '\nINVALID COMMAND',
+      '\n\n'
     ]
 
     // const COMMANDS = {
@@ -79,7 +100,7 @@ function Shell() {
       Functions
     */
     const execute = (input) => {
-      let returnString = "";
+      let returnString = '';
       switch (input.toString().toLowerCase()) {
         case 'help':
           console.log('help');
@@ -88,25 +109,42 @@ function Shell() {
           })
           return returnString;
         case 'whois':
-          console.log('whois');  
-          return 'smirk emoji';
+          console.log('whois');
+          whois.map(item => {
+            returnString += item;
+          })
+          return returnString;
         case 'repo':
           console.log('repo');
-          return 'repo';
+          repo.map(item => {
+            returnString += item;
+          })
+          return returnString;
         case 'clear':
-          console.log('clear');  
-          return 'stop';
+          console.log('clear');
+          clearCommand();
+          return '';
         default:
           console.log('invalid command');
-          return 'Invalid command';
+          invalidCommand.map(item => {
+            returnString += item;
+          })
+          return invalidCommand;
       }
+    }
+
+    const clearCommand = () => {
+      // this.state.userOutput.length = 0;
+      setUserOutput([]);
     }
 
     
     const changeOutput = (event) => {
       if (event.key == 'Enter') {
         const newString = userInput + '\n' + execute(userInput);
-        setUserOutput(userOutput => userOutput.concat(newString));
+        if (userInput.toString.toLowerCase != 'clear') {
+          setUserOutput(userOutput => userOutput.concat(newString));
+        }
         setUserInput('');
       }
     }
