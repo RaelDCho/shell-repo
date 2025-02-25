@@ -13,8 +13,6 @@ function Input({output, change, input, inputRef}) {
 
     return(
         <div>
-            {/* <span className='input-container'>guest@RaelDCho.com:$ ~ </span> */}
-            {/* <label htmlFor='user-input'>guest@RaelDCho.com:$ ~ </label> */}
             <Prompt />
             <input id='user-input' className='user-input'
                 type='text' 

@@ -14,7 +14,7 @@ function Shell() {
     const inputRef = useRef();
 
     /*
-      text arrays
+      text arrays for responding to user input
     */
     const asciiArt = [
       "      @.@        @                                           ",
@@ -78,6 +78,7 @@ function Shell() {
       '\n\nWork Experience:',
       '\nRetail Assistant at Kmart Australia (2017-2019)',
       '\nCyber Security Consultant at RSM Australia (March 2022 - Present)',
+      '\n\nResume:',
       '\nADD LINK TO RESUME',
       '\n\n'
     ]
@@ -91,10 +92,6 @@ function Shell() {
       '\nINVALID COMMAND',
       '\n\n'
     ]
-
-    // const COMMANDS = {
-
-    // }
 
     /*
       Functions
