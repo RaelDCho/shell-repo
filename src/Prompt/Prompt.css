@@ -1,3 +1,16 @@
 .prompt {
     width: 100%;
+    color: rgb(32, 32, 32);
+}
+
+.account {
+    color: rgba(0, 238, 255, 0.582);
+}
+
+.site {
+    color: hsla(300, 100%, 50%, 0.466);
+}
+
+.symbols {
+    color: #ffd90073;
 }

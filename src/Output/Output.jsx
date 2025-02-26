@@ -17,13 +17,13 @@ function Output({output}) {
     // }, []);
 
     // Not working
-    useEffect(() => {
-      console.log('useEffect rendered');
-      if (scrollRef.current) {
-        console.log('Hallo');
-        setTimeout(() => scrollRef.current.scrollIntoView(), 0);
-      }
-    }, []);
+    // useEffect(() => {
+    //   console.log('useEffect rendered');
+    //   if (scrollRef.current) {
+    //     console.log('Hallo');
+    //     setTimeout(() => scrollRef.current.scrollIntoView(), 0);
+    //   }
+    // }, []);
 
     return(
       <div className='terminal' ref={scrollRef}>

@@ -12,6 +12,7 @@ function Shell() {
     const [userOutput, setUserOutput] = useState([]);
     const [userInput, setUserInput] = useState('');
     const inputRef = useRef();
+    const scrollRef = useRef();
 
     /*
       text arrays for responding to user input
